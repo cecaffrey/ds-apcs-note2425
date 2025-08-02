@@ -1,0 +1,39 @@
+Multiple Choice Questions on Big-O
+ 
+ 
+ 
+1. An efficient algorithm that must delete the last two elements in a long list of n elements stored in an array is
+ 
+(A) O(n)
+(B) O(n2)
+(C) O(1)
+(D) O(2)
+(E) O(log n)
+ 
+2. An algorithm to remove all negative values from a list of n integers sequentially examines each element in the array.  When a negative value is found, each element is moved down one position in the list.  The algorithm is
+ 
+(A) O(1)
+(B) O(log n)
+(C) O(n)
+(D) O(n2)
+(E) O(n3)
+ 
+3. A certain algorithm is O(log n).  Which of the following will be closest to the number of computer operations required if the algorithm manipulates 1000 elements?
+ 
+(A) 10
+(B) 100
+(C) 1000
+(D) 106
+(E) 109
+ 
+4. A certain algorithm examines a list of n random integers and outputs the number of times the value 5 appears in the list.  Using Big O notation, this algorithm is
+ 
+(A) O(1)
+(B) O(5)
+(C) O(n)
+(D) O(n2)
+(E) O(log n)
+ 
+ 
+ 
+Multiple-Choice Questions on Big-O
