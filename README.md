@@ -20,6 +20,6 @@
 
 # I know what I'm talking about: 
 
-![a 5 on my AP CS exam(?), who even reads these alt text anyways](https://github.com/user-attachments/assets/198b86f1-5212-4d7f-942e-687246bcabe3)
+https://github.com/user-attachments/assets/198b86f1-5212-4d7f-942e-687246bcabe3
 
 ~~But at the same time, I would never talk to anyone who didn't get a 5 on this exam because it's literally the easiest test I've ever taken for this course.~~ <sub>Sorry</sub>
