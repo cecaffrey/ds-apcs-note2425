@@ -1,0 +1,34 @@
+}
+ 
+ 
+2) Using Practice-It's ListNode class, write code that appends a ListNode whose value is 3 at the end of the given list.  (No need to write for a general case.)
+2
+ 
+
+list
+
+1
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3) If Practice-It! requires you to "throw an exception" use code like this:  
+
+        ​​ if( n < 0 ) throw new IllegalArgumentException();
+ 
+ 
+4) Go to the Practice-It website at:  http://practiceit.cs.washington.edu/
+ 
+After you log in, click on Start Practicing!
+ 
+Select Building Java Programs, 5th Edition
+ 
+Select BJP5 Chapter 16: Linked Lists
+ 
+Your assignment today is to solve all the BJP5 Self-checks and BJP5 Exercises 16.1 - 16.6.
