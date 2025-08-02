@@ -1,0 +1,169 @@
+Expression Evaluator
+ 
+In mutual recursion, a set of cooperating methods calls each other recursively.  We will use three methods that call each other to evaluate mathematical expressions such as 3+4*5 and (3+4)*5.
+ 
+We may analyze any expression as recursively composed of terms, factors, expressions, and numbers. 
+1. Each expression is broken down into one (term) or a (term + or - an expression).
+2. Each term is broken down into one (factor) or a (factor * or / a term).  
+3. Each factor is either an (expression in parentheses) or a (number).
+ 
+Study how the algorithm analyzes our two examples:
+ 
+             3  +  4  *  5
+                        Expression                                                                  
+                                                                                                   
+             Term                    Expression
+                   
+                                                Term          
+                                                           
+                                    Factor                Term
+         Factor                                          
+                                                             Factor
+        parseInt              parseInt            
+                                                             parseInt
+   
+    3   +    4 *   5
+   
+ 
+ 
+ 
+ 
+                        (3 +  4)  * 5
+                                           Expression
+ 
+                                         Term
+ 
+                 Factor                                    Term
+ 
+               Expression                              
+ 
+    Term           Expression                      Factor
+ 
+   Factor              Term
+ 
+                             Factor
+  parseInt              parseInt                  parseInt
+ 
+( 3    +   4  )  *     5
+ 
+ 
+ 
+ 
+ 
+ 
+Enter an expression: 3+4*5
+calling getExpressionValue()
+calling getTermValue()
+calling getFactorValue()
+  getFactorValue() peek 3
+returning getFactorValue() 3
+  getTermValue() peek +
+returning getTermValue() 3
+  getExpressionValue() peek +
+calling getExpressionValue()
+calling getTermValue()
+calling getFactorValue()
+  getFactorValue() peek 4
+returning getFactorValue() 4
+  getTermValue() peek *
+calling getTermValue()
+calling getFactorValue()
+  getFactorValue() peek 5
+returning getFactorValue() 5
+  getTermValue() peek null
+returning getTermValue() 5
+returning getTermValue() 20
+  getExpressionValue() peek null
+returning getExpressionValue() 20
+returning getExpressionValue() 23
+3+4*5 = 23
+ 
+ 
+ 
+Enter an expression: (3+4)*5
+calling getExpressionValue()
+calling ()
+calling getFactorValue()
+  getFactorValue() peek (
+calling getExpressionValue()
+calling getTermValue()
+calling getFactorValue()
+  getFactorValue() peek 3
+returning getFactorValue() 3
+  getTermValue() peek +
+returning getTermValue() 3
+  getExpressionValue() peek +
+calling getExpressionValue()
+calling getTermValue()
+calling getFactorValue()
+  getFactorValue() peek 4
+returning getFactorValue() 4
+  getTermValue() peek )
+returning getTermValue() 4
+  getExpressionValue() peek )
+returning getExpressionValue() 4
+returning getExpressionValue() 7
+returning getFactorValue() 7
+  getTermValue() peek *
+calling getTermValue()
+calling getFactorValue()
+  getFactorValue() peek 5
+returning getFactorValue() 5
+  getTermValue() peek null
+returning getTermValue() 5
+returning getTermValue() 35
+  getExpressionValue() peek null
+returning getExpressionValue() 35
+(3+4)*5 = 35
+ 
+This lab uses three classes, a driver class, the Evaluator class, and the ExpressionTokenizer class, which has been written for you.  This class has two helpful instance methods, peekToken and nextToken.   peekToken just returns the token, whatever it may be (in this lab, a parentheses, operator, or number).   nextToken returns the token and advances to point at the next token.  The ExpressionTokenizer class processes the expression left-to-right, returning each token as needed.  The methods below take action based on that token, whatever it may be.
+ 
+For example, “3  +  4  *  5” will return five tokens, one at a time.  “(3  +  4)  *  5” will return seven tokens, one at a time.
+ 
+The Evaluator class has three instance methods which do what we described above:
+1. getExpressionValue gets the value of the term, peeks at the token and if it is “+” or “-”,  gets the value of the 2nd expression, and returns their sum or difference.  
+ 
+2. getTermValue gets the value of the factor, peeks at the token and if it is “*” or “/”,  gets the value of the 2nd term, and returns their product or quotient. 
+ 
+3.  getFactorValue peeks at the token and if it is “(”, advances the token, gets the value of the inner expression, and advances past the ")", else parses and returns the number.    
+ 
+You are given the method getFactorValue(). Trace the code using (3+4) as the factor:
+ 
+     public int getFactorValue()
+     {
+        int value;
+        String next = tokenizer.peekToken();
+        if ("(".equals(next))
+        {
+           tokenizer.nextToken(); ​     // Discard "("
+           value = getExpressionValue(); // What happens here?
+         tokenizer.nextToken(); ​     // Discard ")"
+        }
+        else
+        ​value = Integer.parseInt(tokenizer.nextToken());
+        return value;
+     }
+ 
+Extensions
+ 
+Expression
+Output
+Should be
+6*8/6
+6
+8
+2-3+5
+-6
+4
+3*4/6
+0
+2
+3+4-5+2*3
+-4
+8
+1. Make the code work for negative numbers.
+ 
+2. During the testing phase, before the code was deployed to the customer, one of the testers tested
+the following expressions and obtained these errorsà
+ 
+The given algorithm doesn’t work correctly!   The problem comes when evaluating left-to-right expressions.  You will need to re-analyze how the expressions get broken down.  Put your solution in 3 new methods, getExpressionValueEXT, getTermValueEXT, and getFactorValueEXT.
