@@ -1,0 +1,57 @@
+Recursion
+(To give you notes on recursion, I must first give you notes on recursion.)
+ 
+ 
+Anything that is defined in terms of itself is recursive.  In other words, each substructure has the same form as the original structure.
+ 
+factorials
+n! = n * (n-1)!, until n gets down to 1.
+powers
+xy = x * xy-1 , and xy-1 = x * xy-1-1, etc., until y gets to 1.
+processing lists
+a list is the [first element + a smaller list], until each element has been processed
+Fibonacci series
+1 1 2 3 5 8 13…
+the current number is calculated from the previous two numbers, until the previous number reaches 1.
+listing directories and files
+a directory contains either subdirectories or files.  Each subdirectory contains either sub-subdirectories or files.  Stop when you have only files.
+permutations of characters
+a string is the (first character +  a smaller string), until the string is complete
+trees
+each branch is also a tree, until each leaf has been processed
+filling an area, escaping a maze
+the current pixel may be adjacent to another pixel, which becomes the current pixel, and so on, until all of them have been covered.
+Tower of Hanoi
+moving n disks is just like moving (n-1) disks, and so on, until one disk is to be moved.
+8 Queens problem
+ 
+placing 1 queen successfully is just like placing 2 queens successfully, and so on, until all eight have been placed.
+fractals
+each part looks just like the whole, at every scale of the figure.
+ 
+▪ The first three structures are linear.  We generally use iteration, not recursion, to process linear structures.  
+▪ The Fibonacci series can be either linear or tree-like.  (We’ll have a lab on that later.)
+▪ The last seven structures are branching, tree-like, or nested.  We generally use recursive methods in these cases because the code is compact and powerful.  
+ 
+A recursive method is a method that contains a call to a “one-step smaller” copy of itself.  Here is a common beginner’s example:
+ 
+public long factorial (int n)
+                            1
+{
+                                          1
+   if(n==1)
+            2 * factorial(1)
+       return 1;
+                                        2
+   else
+      3 * factorial(2)
+      return n * factorial(n-1);
+                                 
+}                                                  
+x = factorial(3)                 6
+ 
+▪ Notice the if-else construction.  All recursive methods have it, sometimes implicitly.
+▪ Notice the call, at the end, to a “one-step smaller” copy of itself.  Learn to look for it.
+▪ Notice the base case, in the if-statement, which is where the recursion stops.
+▪ The recursive calls stack up on top of one another.  Until you get good at recursion, learn to trace the calls up and down the levels.  The trace above shows how 3! returns 6.
+ 
