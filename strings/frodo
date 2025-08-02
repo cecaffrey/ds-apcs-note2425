@@ -1,0 +1,104 @@
+Frodo’s String Demo
+Wherever you see a print statement, write the expected output.
+1    import java.awt.*;
+2    import java.awt.event.*;
+3    import javax.swing.*;
+4    public class FrodoBagginsDemo
+5    {
+6       public static void main (String[] args)
+7       {
+8          String frodo = "frodoBaggins";
+9          System.out.println(" 9:  " + frodo);
+10          String gandalf;
+11          gandalf = "gandalfTheGrey";
+12          System.out.println("12:  " + gandalf);
+13          frodo = gandalf;
+14          System.out.println("14:  " + frodo);
+15          if (frodo == gandalf)
+16             System.out.println("16:  " + "frodo has the same reference as gandalf");
+17          if (frodo.equals(gandalf)) // also:  equalsIgnoreCase()
+18             System.out.println("18:  " + "frodo is an identical string to gandalf");
+19          //at this point, draw a picture of the references to the String objects.
+20      
+21          int len = frodo.length();
+22          System.out.println("22:  " + len);
+23          frodo = "frodoBaggins";
+24          gandalf = "frodo";
+25          int i = gandalf.compareTo(frodo);
+26          if (i < 0)
+27             System.out.println("27:  " + "gandalf is alphabetically before frodo");
+28          i = frodo.compareTo(frodo);
+29          if (i == 0)
+30             System.out.println("30:  " + "frodo is the same as frodo!");
+31          i = frodo.compareTo(gandalf);
+32          if (i > 0)
+33             System.out.println("33:  " + "frodo is alphabetically after gandalf");
+34        
+35          System.out.println("35:  " + frodo.substring(7));
+36          System.out.println("36:  " + frodo.substring(7,10));
+37          System.out.print("37:  ");
+38          for (i = 0; i < frodo.length(); i++)
+39             System.out.print("   " + frodo.substring(i,i+1));
+40          System.out.println();
+41          System.out.print("41:  ");
+42          for (i = 0; i < frodo.length(); i++)
+43             System.out.print("   " + frodo.charAt(i));
+44          System.out.println();
+45          
+46          frodo = "   * frodoBaggins *   ";
+47          System.out.println("47:  " + frodo);
+48          System.out.println("48:  " + frodo.trim());
+49          frodo = "frodoBagginsfrodoBagginsfrodoBaggins";
+50          System.out.println("50:  " + frodo.indexOf("i"));
+51          System.out.println("51:  " + frodo.indexOf("ice"));
+52          System.out.println("52:  " + frodo.indexOf("i", 3));
+53          System.out.println("53:  " + frodo.lastIndexOf("ice"));
+54          String tomBombadil = "tomBombadil";
+55          System.out.println("55:  " + tomBombadil.toUpperCase());
+56          System.out.println("56:  " + "tOMBomBAdIl".toLowerCase());
+57       }
+58    }
+ 
+
+Summarize what you have learned about Java and Strings:
+ 
+1. What is the difference between == and .equals?
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2. What does compareTo return and what does that signal?
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3. What is the difference between substring with one argument and substring with two arguments?
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4. What does “abcde”.substring(3,5) return?
+ 
+ 
+ 
+ 
+5. What does “abcde”.substring(3,6) return?
+ 
+ 
+ 
+6. What is the relationship between charAt and indexOf?
