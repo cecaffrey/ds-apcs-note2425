@@ -1,0 +1,122 @@
+AP Computer Science​​​​​​Name: ​​​​
+Linked List M/C Homework
+ 
+1. Consider the following method:
+public static void mystery(ListNode p){
+if (p != null){
+mystery(p.getNext().getNext());
+p.setNext(p.getNext().getNext());
+}
+}
+What changes does mystery make to the list whose first node is p ?
+(A) It makes no changes to the list.
+(B) It removes the first, third, and all odd nodes from the list.
+(C) It removes the second, fourth, and all even nodes from the list.
+(D) It removes all nodes except the first node of the list.
+(E) If the number of nodes in the list is odd, it will cause a NullPointerException; otherwise (if the list is even), it removes half of the nodes from the list.
+ 
+2.  Consider the following partial class declaration.
+ 
+public class LList{
+private ListNode front;
+public LList(){
+front = null;
+}
+public void addToLList(Comparable obj){
+front = addHelper(front, obj);
+}
+private ListNode addHelper(ListNode list, Comparable obj){
+if (list == null || obj.compareTo(list.getValue()) == 0){
+list = new ListNode(obj, list);
+return list;
+}
+else{
+list.setNext(addHelper(list.getNext(), obj));
+return list;
+}
+}
+// ... other methods and data not shown
+}
+ 
+Consider the following code segment that appears in a client program.
+LList list = new LList();
+list.addToLList("manager");
+list.addToLList("boy");
+list.addToLList("girl");
+list.addToLList("anyone");
+list.addToLList("place");
+list.addToLList("vector");
+ 
+What values are in list after the code segment has been executed?
+(A) [anyone, boy, girl, manager, place, vector]
+(B) [manager, boy, girl, anyone, place, vector]
+(C) [vector, place, anyone, girl, boy, manager]
+(D) [vector, place, manager, girl, boy, anyone]
+(E) Nothing is in list because a NullPointerException was thrown during the execution.
+ 
+ 
+ 
+ 
+3.  A circular linked list is defined to be a linked list where the last node points back to the first node (see below:)
+ 
+List
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+Which of the following indicates changes that would need to be made to a system that already used a regular linked list in order to implement this data structure correctly?
+ 
+​I.  The ListNode class would have to be modified
+​II.  The code used to build the list would have to be modified
+​III  The code to print the list would have to be modified
+ 
+a.  I, II, and III
+b.  I and II only
+c.  II and III only
+d.  I only
+e.  II only
+ 
+ 
+Consider the following data structure for questions 4 and 5.
+A doubly linked list is a linked list where each node not only points to the one after it, but also to the previous node. (see below:)
+ 
+List
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+4.  Which of the following indicates changes that would need to be made to a system that already used a regular linked list in order to implement this data structure correctly?
+ 
+​I.   The ListNode class would have to be modified
+​II.  The code used to build the list would have to be modified
+​III  The code to print the list would have to be modified
+ 
+a.  I, II, and III
+b.  I and II only
+c.  II and III only
+d.  I only
+e.  II only
+ 
+5.  Which of the following operations would be more efficient (in Big-O terms) with a doubly linked list, as opposed to a singly linked list?
+​I.  Sorting (Standard Insertion Sort)
+​II.  Searching for a specific element (standard Linear Search)
+​III.  Inserting an element into sorted order
+ 
+a.  I only
+b.  II only
+c.  III only
+d. I and III only
+e.  none of the above algorithms would have added efficiency from a doubly linked list.  
