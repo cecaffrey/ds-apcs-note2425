@@ -1,4 +1,4 @@
-# ds-apcs-notes245
+# Data Structures
 
 **01**. Strings
 
