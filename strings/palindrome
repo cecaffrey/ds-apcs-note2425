@@ -1,0 +1,96 @@
+Palindrome
+ 
+The Palindrome class below tests whether a given sentence is a palindrome, i.e. reads the same from left to right and right to left, ignoring spaces, punctuation, and capitalization.  E.g.,
+​​A Santa lived as a devil at NASA.​
+​Flo, gin is a sin! I golf.
+​Eva, can I stab bats in a cave?
+ 
+A object-oriented approach to this problem creates a class that encapsulates all the data and methods in itself.  What data?  The sentence to be tested, of course.  The constructor(s), as always, need to initialize the private data. What methods do we need?  In this case we need one accessor method.  We don’t need a modifier method.  We need methods to clean up the sentence, removing spaces, punctuation, and lower-casing all the letters.  The driver class will test each of those methods.  Finally, the driver will report whether the clean-up sentence is a palindrome.  You may do the test either iteratively or recursively.  Here is the beginnings of the class, written in the style of an AP question:
+ 
+public class Palindrome
+{
+​​private String mySentence;
+​​
+​//Precondition:  str is not empty.  
+​​public Palindrome( String str )
+​​{  /*  to be implemented in part (a)  */ }
+ 
+​​public String getSentence()
+​​{  return mySentence;  }
+​
+​​//Returns a string of mySentence with all blanks removed.
+​​//Postcondition:  Returned string contains just one word.
+​​public String removeBlanks()
+​​{  /*  to be implemented in part (d)  */  }
+ 
+​​//Returns a string of mySentence with all letters in lowercase.
+       //Postcondition:  Number of words is not changed.
+​​public String lowerCase()
+​​{  /*  to be implemented in part (d)  */  }
+ 
+​​//Returns a string of mySentence with all punctuation removed.
+       //Postcondition:  Number of words is not changed.
+​​public String removePunctuation()
+​​{  /* to be implemented in part (d)  */  }
+ 
+​​//Precondition: s has no blanks, no punctuation, and is in lower case/
+         //Recursive helper method that returns true if s is a palindrome, false otherwise.
+​​public boolean isPalindrome( String s, int start, int end )
+​​{ /*  to be implemented in part (b)  */}
+ 
+​   //cleans up mySentence.  Prints the cleaned-up mySentence.
+​   //returns true if mySentence is a palindrome, false otherwise.
+​   //calls the 3-arg isPalindrome(String, int, int)
+​​public boolean isPalindrome()
+​​{ /*  to be implemented in part (c)  */​}
+}
+ 
+ 
+(a)  ​Complete the Palindrome constructor below.
+​​//Precondition:  str is not empty.  
+​public Palindrome( String str )
+​{
+ 
+ 
+​
+​
+​
+(b)  The isPalindrome method is a helper method. A recursive algorithm for testing if a string (no blanks, no punctuation, and in lower case) is a palindrome is as follows:
+• if the left index is equal to or greater than the right index, it is a palindrome
+• if the first letter is the same as the last letter, then call palindrome using the next two inward letters in the string.  Otherwise, the string is not a palindrome.
+​Complete isPalindrome below.
+​
+​//Precondition: s has no blanks, no punctuation, and is in lower case.
+​//Returns true if s is a palindrome, false otherwise.
+​public boolean isPalindrome( String s, int start, int end )
+​{
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(c)  ​Test whether any given string is a palindrome.  A palindrome reads the same from left to right and right to left, ignoring spaces, punctuation, and capitalization.  E.g.,
+​​A Santa lived as a devil at NASA.​
+​Flo, gin is a sin! I golf.
+​Assume that any method in the class works, regardless of what you wrote above.  
+ 
+​​ //cleans up mySentence.  Prints the cleaned-up mySentence
+​   //returns true if mySentence is a palindrome, false otherwise.
+​   //calls the 3-arg isPalindrome(String, int, int)
+​public boolean isPalindrome()
+​​{
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(d)​In jGrasp implement the removeBlanks, lowercase, and removePunctuation methods so that the program works as described.  
