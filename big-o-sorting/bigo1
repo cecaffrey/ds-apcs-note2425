@@ -1,0 +1,130 @@
+Big-O Analysis
+Big-O Notation in 5 Minutes:  https://www.youtube.com/watch?v=__vX2sjlpXU
+ 
+Big-O is a notation that expresses the efficiency of algorithms, especially how well the algorithm performs as the number of items n increases.  The expression O(n), or "Big-O of n" means the time the algorithm takes to process all items varies linearly with the number of items.  Similarly, O(n2) means that the time varies with the square of the number of items.
+ 
+Let’s analyze these methods:
+ 
+public static double sum(double[] array)
+{
+  double sum = 0.0;
+  for(int k = 0; k < size(array); k++)
+      sum = sum + get(array, k);
+  return sum;
+}
+Because the for-loop in sum visits each element, the Big O is O(n). Doubling the number of items would double the work.
+ 
+public static double get(double[] array, int k)
+{
+  return array[k];
+}
+get and size are both O(1) or constant.  The time it takes to compute the value of the kth item or the size of the data set is independent of the number of items.  Any change to the size of the data set would not affect these operations.
+public static int size(double[] array)
+{
+  return array.length;
+}
+ 
+public static double average(double[] array)
+{
+   return sum(array) / size(array);
+}
+average calls sum, which is O(n) and size, which is O(1).  
+It looks like the Big-O would be O(n*1).  However, since Big-O theory always considers n to be as large as possible, the constants, coefficients, and smaller terms are ignored.  O(n*1) becomes just O(n).
+ 
+Here is an inefficient implementation called foo:
+ 
+   public static void foo(double[] array)
+   {
+    for( int k = 0; k < size(array); k++ )
+     if( get(array, k) > average(array) )
+        System.out.println( “Hello ” + get(array, k) + “.” );
+   }
+ 
+Since average is recalculated each time in the for-loop (i.e, the two for-loops are nested), foo runs in O(n2) or quadratic time.  
+ 
+If we rewrite foo so that the for-loops are side-by-side, we get O(n+n), which reduces by the Big O rules to O(n).  Here is the new and improved foo:
+ 
+   public static void foo(double[] array){
+    double avg = average(array);
+     for( int k = 0; k < size(array); k++ )
+   ​if( get(array, k) > avg ) 
+      ​System.out.println( “Hello ” + get(array, k) + “.” );     
+   }
+We can easily get worse efficiency by changing the implementation of helper methods. For instance, suppose we reimplement get and size so that they use loops:
+ 
+​public static double get(double[] array, int k)
+​{
+​  int j = 0;
+​  while(j < k)
+​     j = j + 1;
+​  return array[j];
+​}
+​
+​public static int size(double[] array)
+​{
+​  int j = 0;
+​  while(j < array.length)
+​     j = j + 1;
+​  return j;
+​}
+ 
+Now both get and size have become linear or O(n).  This means that our original sum and average are now O(n2), and our original foo is now 3 nested loops, or O(n3).  Ouch!
+ 
+Here is the AP exam’s favorite Big O question, which looks like one for-loop, but has a trick to it.  Using the original, O(1) get method, what is Big O value for trickfoo?
+ 
+public static void trickfoo(double[] array)
+​{
+​  for(int k = 1; k < array.length; k*=2)
+​   System.out.print(get(array, k) + “, ”);
+​}
+ 
+Most algorithms we deal with in APCS will be either O(1), O(log n), O(n), O(n*log n), or O(n2), where logs are understood to be taken base two (e.g., log 1024 = 10).  
+ 
+An example of an O(log n) algorithm is the binary search, as we have already seen.
+ 
+Exercises
+As the n increases, how do these Big O efficiencies change?
+ 
+Big O
+n = 1
+n = 2
+n = 10
+n = 100
+n = 1000
+1
+ 
+ 
+ 
+ 
+ 
+log n
+ 
+ 
+ 
+ 
+ 
+n
+1
+ 
+ 
+ 
+ 
+n log n
+ 
+ 
+ 
+ 
+ 
+n 2
+ 
+ 
+ 
+ 
+1,000,000
+2n
+ 
+ 
+ 
+ 
+ 
+ 
