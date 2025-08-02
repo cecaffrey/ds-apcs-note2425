@@ -1,0 +1,118 @@
+String Methods
+ 
+For each line of code with end of line comments, record what would be stored in the declared variable or be outputted on the screen.  
+ 
+ 3 public class StringMethods
+ 4 {
+ 5   public static void main(String[] args)
+ 6   {
+ 7      String s = "Internet",  s2 = "net", s3 = "   Inter net ";
+ 8      
+ 9      String s7 = s.substring(5);            //
+10      String s8 = s.substring(0, 5);         //
+11      String s9 = s.substring(2, 6);         //
+12      
+13      int pos11 = s.indexOf('e');            //
+14      int pos12 = s.indexOf('x');            //
+15      int pos13 = s.indexOf('e', 4);         //
+16      int pos14 = s.lastIndexOf('e');        //
+17      int pos15 = s.lastIndexOf('e', 4);    //  
+18     int pos16 = s.lastIndexOf('e', 2);     //
+19      int pos17 = s.indexOf(s2);             //
+20      int pos18 = s.indexOf(s2, 6);          //
+21      int pos19 = s.lastIndexOf(s2);         //
+22      int pos20 = s.lastIndexOf(s2, 6);      //
+23      
+24      boolean isSame22 = s.equals(s2);       //
+25      boolean isSame23 = s.equalsIgnoreCase("internet");//
+26      int result24 = s.compareTo("internet");//
+27      int result25 = s2.compareTo(s);        //
+28      int result26 = s.compareToIgnoreCase("internet");//
+29      
+30      String s28 = s.toUpperCase();          //
+31      String s29 = s.replace("n", "");      //
+32      String s30 = s3.trim();                //
+33      // String methods never change the String object for which they are
+34      // called.  They build and return a new string instead. For example,
+35      // s3.replace('a','A') by itself is useless, because s3 remains unchanged.
+36      // The technical term is "immutable," as in "Strings are immutable."
+37      
+38      char ch = s.charAt(0);                       //
+39      boolean isSame36 = (ch == 'I');              //
+40      boolean isLetter37 = Character.isLetter(ch); //
+41      boolean isCap38 = Character.isUpperCase(ch); //
+42      char ch39 = Character.toLowerCase(ch);       //
+43      String s40 = ch39 + s.substring(1);          //
+44      // three ways to visit each character of a string
+45      for(int i = 0; i < s.length(); i++)
+46         System.out.print(s.substring(i, i+1)+" ");//  
+47      for(int i = 0; i < s.length(); i++)
+48         System.out.print(s.charAt(i)+" ");        //  
+49      char[] chArray = s.toCharArray();
+50      for(int i = 0; i < chArray.length; i++)      
+51         System.out.print(chArray[i]+" ");         //  
+52      System.out.println();
+53      
+ 
+ 
+ 
+ 
+54      // Strings can be split:   String[] split(String separator)
+55      // The method split() returns an array of substrings split around
+56      // the specified separator, which is then removed
+57      String[] abra = "ABRACADABRA".split("A");
+58      for(String str : abra)
+59         System.out.print(str+" ");                  //
+60      System.out.println();
+61      String[] abra2 = "ABRACADABRA".split("BR");
+62      for(String str : abra2)
+63         System.out.print(str+" ");                   //
+64      System.out.println();
+65      String[] words = "A sentence with lots of words".split(" ");
+66      for(String str : words)
+67         System.out.println(str+" ");                 //
+68                                                      //
+69                                                        
+70      /*  String Methods #1
+71     1. The string dateStr represents a date in the format "mm/dd/yyyy".  
+72     Write a code fragment that changes dateStr to the format "dd-mm-yy".  
+73     For example, "09/16/2008" becomes "16-09-08".  
+74     */    
+75  
+76  
+77  
+78  
+79      
+80      /*  String Methods #2  
+81     2. Given a line of text, print each word on its own line, but don't
+82     print the blank lines.  */
+83     String line = "Fall    Sports (football, golf,    cheerleading, volleyball, field hockey, cross country) start in 1 week. ";
+85  
+86  
+87  
+88  
+89  
+90      /*   String Methods #3
+91     3. Given a line of text, remove all punctuation from that line.
+92     One way is to replace each punctuation mark with "".
+93     */      
+94      String str = "RT @TJCheer2015: Freshman & Sophomores: Interested in cheer at TJ? Email: thomasjeffersoncheer@gmail.com";
+95     String punct = ",./;:'\"?<>[]{}|`~!@#$%^&*()";
+96      
+97      
+98      
+99      
+100      
+101      /*   String Methods #4
+102     4. Given a line of text, remove all punctuation from that line.
+103     One way is to keep all characters that are letters or a space.
+104     */      
+105      String str2 = "a @galaxy far, far away --right there! on the (TJ planetarium} ceiling. https://t.co/XfoqbyA9JY";
+106      String letters = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+107      String cleaned = "";
+108      
+109      
+110      
+111      
+112   }
+113 }
