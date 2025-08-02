@@ -1,0 +1,119 @@
+Area Fill
+ 
+ 
+Several text files (area1.txt, area2.txt, area3.txt, and area4.txt) contain two integers indicating the number of rows and columns, followed by rows and columns filled with different characters.  Study the format of the text file area3.txt:
+
+4 rows, 3 columns
+
+The data for the matrix
+
+​ 4 3
+ ​ +++
+ ​ @+@
+ ​ @+@
+ ​ @@@
+ 
+You need to read the file into a correctly-sized matrix and then to display the matrix, as one long String.  Then you will write two methods, one to fill part of the matrix with an '*', and another to fill-and-count part of the matrix with an '*'.   Study this sample run:
+
+filename
+ 
+
+display
+
+display
+
+fill from 0, 2 with *
+
+Option 1
+Fill the Area of (-1 to exit): area3.txt
++++
+@+@
+@+@
+@@@
+
+1-Fill or 2-Fill-and-Count: 1
+
+Enter ROW COL to fill from: 0 2
+***
+@*@
+@*@
+@@@
+
+same file
+ 
+
+display
+
+display
+
+Option 2 counts the *
+
+Option 2
+
+fill from 1, 0 with *
+Fill the Area of (-1 to exit): area3.txt
++++
+@+@
+@+@
+@@@
+
+1-Fill or 2-Fill-and-Count: 2
+
+Enter ROW COL to fill from: 1 0
++++
+*+*
+*+*
+***
+
+count = 7
+
+Fill the Area of (-1 to exit): -1
+ 
+fill:   After prompting the user for (row, col) coordinates, your code will replace the character that is stored in that position with a ‘*’.  Then recur up, down, left, and right, (but NOT diagonally) and replace similar characters with ‘*’.   What are the base cases?
+ 
+fillAndCount:  As before, your code will recursively replace the character that is stored in that position with a '*'.   The difference is that you will recursively count the number of characters that you replaced.  The count is returned as an int.  (You are not allowed to use nested for-loops to count.  You must return a recursive count of the levels of recursion).  
+ 
+Here are the headers of the four methods:
+ 
+  /**
+   * Reads the contents of the file into a matrix.
+   * @param filename The string representing the filename.
+   * @returns A 2D array of chars.
+   */
+  public static char[][] read(String filename)
+ 
+
+ 
+ 
+
+  /**
+  * @param g A 2-D array of chars.
+  * @returns A string representing the 2D array.
+  */
+  public static String display(char[][] g)
+ 
+ 
+ 
+  /**
+   * Fills part of the matrix with a different character.
+   * @param g A 2D char array.
+   * @param r An int representing the row of the cell to be filled.
+   * @param c An int representing the column of the cell to be filled.
+   * @param ch A char representing the replacement character.
+   */
+   public static void fill(char[][] g, int r, int c, char ch)
+ 
+ 
+ 
+ 
+ 
+  /**
+   * Fills part of the matrix with a different character.
+   * Counts as you go.  Does not use a static variable.
+   * @param g A 2D char array.
+   * @param r An int representing the row of the cell to be filled.
+   * @param c An int representing the column of the cell to be filled.
+   * @param ch A char representing the replacement character.
+   * @return An int representing number of characters that were replaced.
+   */
+   public static int fillAndCount(char[][] g, int r, int c, char ch)
