@@ -1,0 +1,40 @@
+KNOW THY Big-O
+ 
+ 
+Fill in the Big-O notation for the two search and four sorting algorithms covered to date.  Keep in mind:
+ 
+O(1)  <  O (log n) <  O (n) < O (n log n) <  O(n2)
+ 
+ 
+Type of Sort/Search
+Best Case,
+what condition?
+Average Case,
+what condition?
+Worst Case,
+what condition?
+Selection Sort
+ 
+ 
+ 
+Insertion Sort
+ 
+ 
+ 
+Merge Sort
+ 
+ 
+ 
+Quick Sort
+ 
+ 
+ 
+Linear Search
+ 
+ 
+ 
+Binary Search
+ 
+ 
+ 
+ 
