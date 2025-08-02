@@ -1,0 +1,67 @@
+Extra Help on MazeGrandMaster 1
+ 
+public int findShortestLengthPath(int r, int c)
+ 
+Here is the algorithm:  “A wall or edge or temp returns a large number, say 999.  When you find the ‘E’, return 0.  As the recursion unwinds, at each level, you compare and keep the smallest (so far) of the total ups, downs, lefts, and rights.  After all the recursive calls have completed themselves, the smallest combination of the combination of ups, downs, lefts, and rights will have been collected.  Return that.”
+ 
+Let’s analyze how the counting, which leads to the smallest path, happens in maze1:
+WWWWWWWW
+W....W.W
+WW.W...W
+W....W.W
+W.W.WW.E
+S.W.WW.W
+W......W
+WWWWWWWW
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+After the recursive calls have found the ‘E’, we have complex 4-way-branching tree of many 1+’s, many 999’s, and one 0, which is very hard to visualize. Note: none of the 1+’s have been added yet. You can visualize the 1+’s stored in the tree at each branch like this:
+W W W W W W W W
+W 1+ 1+ 1+ 1+ W 1+ W
+W W 1+ W 1+ 1+ 1+ W
+W 1+ 1+ 1+ 1+ W 1+ W
+W 1+ W 1+ W W 1+ 0
+S 1+ W 1+ W W 1+ W
+W 1+ 1+ 1+ 1+ 1+ 1+ W
+W W W W W W W W
+ 
+ 
+ 
+ 
+The recursive calls stop at ‘E’  
+ 
+ 
+ 
+ 
+ 
+W W W W W W W W
+W o o o 6 W 4 W
+W W o W 5 4 3 W
+W o o 7 6 W 2 W
+W o W 8 W W 1 0
+S o W 9 W W 2 W
+W o o . 5 4 3 W
+W W W W W W W W
+As the recursive calls unwind themselves (going backwards from the ‘E’), the 4-way branching tree collects the smallest numbers at each level, visualized like this:​
+ 
+ 
+ 
+The unwinding starts at ‘E’.  
+return Math.min(up, Math.min(down, Math.min(left, right)));
+ 
+ 
+return 1 + Math.min(up, Math.min(down, Math.min(left, right)));
+ 
+ 
+           
+           What happens at the level of the 9, 5, W, and o?
+          What happens at the next level “below”?
+          Why is it essential that the temporary mark return a high number?
