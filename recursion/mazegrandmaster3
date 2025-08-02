@@ -1,0 +1,34 @@
+MazeGrandMaster 1
+ 
+ 
+WWWWWWWW
+W....W.W
+WW.W...W
+W....W.W
+W.W.WW.E
+S.W.WW.W
+W......W
+WWWWWWWW
+Let’s solve some mazes.  We will use the same basic Maze class design as MazeMaster.  
+ 
+MazeMaster returned booleans to mark a path, any path, through the maze.
+ 
+MazeGrandMaster 1 will return ints to calculate the shortest path. We do not mark the path.
+ 
+Notice that in the maze shown that you may go from S to E by taking different paths. One path takes 14, another 12, and third 10 steps.
+ 
+You will implement one method and then three more:
+ 
+1. public int findShortestLengthPath(int r, int c)
+This recursive method will return the length of the shortest path from “S” to “E” as an integer. You just have to count the steps, without actually recording the actual path.  As in any maze, the recursion recurs in all four directions, this time keeping separate counts for ups, downs, lefts, and rights.  You must place a temporary mark. A wall or edge or temp returns a large arbitrary number, say 999.  When you find the ‘E’, return 0.  As the recursion unwinds, at each level, you compare and keep the smallest (so far) of the total ups, downs, lefts, and rights.  You also change the temporary mark back to a dot.  After all the recursive calls have completed themselves, the smallest combination of the combination of ups, downs, lefts, and rights will have been collected.  Return that.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Extension:  above we used a large arbitrary number 999, which is not a good programming practice.  We really ought to use -1 to indicate when the path fails.​Do that.
