@@ -1,0 +1,76 @@
+​​9/6/2018
+Scanner and PrintWriter Classes
+ 
+ 
+1.  ​In the method shown below, explain what is happening on every numbered line.
+ 
+​1. ​import java.util.Scanner; 
+​import java.io.*;​   
+​2. ​public static void IOpractice() throws FileNotFoundException,
+​​​​IOException
+   ​{
+3.  ​​Scanner sc = new Scanner( System.in );
+4.  ​​System.out.print( "What filename? " );
+5.  ​​String filename = sc.next();
+6.  ​​Scanner infile = new Scanner( new File( filename ) );
+7.  ​​String fileout = “results.txt”;
+8.  ​​PrintWriter outfile = new PrintWriter(new FileWriter(fileout));
+9.  ​​while( infile.hasNext() )
+    ​{
+10.    ​String s = infile.nextLine();
+    ​outfile.print( s + ", ");
+     ​} 
+​11.​​outfile.close(); 
+​​}​
+ 
+​
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.  ​If you remember the Scanner class, write down five methods that you are likely to use.  If you don’t remember, go look at its API and choose five methods that you find interesting.  Hint:  Google “Scanner class Java”.  
+
+3.  ​Here is a sample dialog with a computer.  The user is typing at the keyboard.  
+ 
+Enter your name:  Marissa Mayer
+You entered Marissa Mayer
+Enter an integer:  -2
+Enter a decimal number:  2.71828
+The sum is 0.71828
+ 
+Using Scanner methods for keyboard input, write a complete program that reproduces the dialog above.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4.​Using Scanner methods for file input, write a complete program to read the input file “datafile.txt”:
+ 
+Marissa Mayer
+-2
+2.71828
+ 
+​Use the PrintWriter methods to produce an output file “processed.txt”:
+ 
+Marissa Mayer
+0.71828
+ 
