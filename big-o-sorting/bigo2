@@ -1,0 +1,77 @@
+Big-O in a Program
+ 
+DIRECTIONS:  Classify the time efficiency of this program by writing the order of magnitude,
+in Big-O notation, of each statement in the blanks on the right.  Then write the time efficiency in Big-O notation for each method.
+import javax.swing.JOptionPane;
+public class statpkg​
+{
+   public static final int MAX = 10000;​//_____
+   public static void main (String[] args)​//main( ) _____
+   {
+        double [] list = new double[MAX];​//_____
+        list = readArray(list);​//_____
+        System.out.println(“Mean = “ +  mean(list));​//_____
+        System.out.println(“Standard deviation = “ + stDev(list));​//_____
+        print(list);​//_____
+   }
+   public static double[] readArray(double[] list)​//readArray( ) ___
+   {                                                        
+        int n = 0;​//_____
+        double height = 0;​//_____
+        height = Double.parseDouble
+                  (JOptionPane.showInputDialog("Enter height:    -1 to stop"));​//_____
+         while(height > -1)​// _____​
+         {
+              if ( n >= list.length )​​​//_____
+​        list = resize(list, 2);​//_____
+​   list[n] = height;​ ​//_____              _____
+​   n++;​//_____
+              height = Double.parseDouble
+                    (JOptionPane.showInputDialog("Enter height:   -1 to stop")); //_____
+​}
+​list = resize(list, n);​//_____
+​return list;​//_____
+   }
+ 
+ 
+   public static double[] resize (double[] list, int n)​//resize() _____
+   {
+       if (n == 2)​//_____
+           n = 2 * list.length;​//_____
+       double [] newList = new double[n];​//_____
+       for (int i = 0; i < Math.min(n, list.length); i++)​//_____        
+            newList[i] = list[i];​//_____        ______
+       return newList;​//_____
+   }
+ 
+ 
+   public static double mean(double[] list)​//mean( ) _____
+   {
+       double sum = 0;​//_____
+       int n  = list.length;​//_____
+       for(int i=0; i<n; i++)​ ​//_____       _____
+              sum += list[i];​//_____
+       return (sum / n);​//_____
+   }
+ 
+   public static double stDev(double[] list)​// stDev( ) _____
+   {
+       double diff, sum = 0;​//_____
+       int n = list.length;​//_____
+       for(int i=0; i<n; i++)​//_____​
+       {
+            diff = list[i]-mean(list);​//_____​_____
+​  sum  = sum + diff*diff;​//_____
+       }
+       return Math.sqrt(sum / (n - 1));​//_____​
+   }
+ 
+   public static void print(double[] list) ​//print( ) _____
+   {
+       int n = list.length;​//_____
+       for(int i=0; i<n; i++)​//_____​              System.out.println (“[  “ + list[i] + “ ]   ” ​           ______
++ (list[i] – mean(list)) / stDev(list) );​//_____​
+   }
+}
+ 
+bigO   from FCPS APCS C++ Workbook by Sally Bellacqua and Mary Johnson, adapated to JAVA
