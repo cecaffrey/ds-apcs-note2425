@@ -1,0 +1,93 @@
+Compacted-out Recursion Projects
+ 
+ 
+3 projects, each with less support than the last.
+ 
+Due in five days.
+ 
+The compacted–out students will also take the class's regular test on recursion.
+
+1
+1.  Eight-Queens Problem
+http://www.cs.kzoo.edu/GridPkgSupplements/AssignmentsUsingGridPkg/NQueens/NQueensLab.shtml
+
+In this lab you will implement the N Queens Problem, using the BoundedGrid class.‡ In this lab you will implement an algorithm that places N queens on an N x N board (like a chess board) in such a way that no queen can attack another queen.
+Exercise Set
+1. Download the zip file that contains the starting code files for the N Queens Lab (NQueens.zip) and unzip it. When you unzip the file you will see the following files and folders.
+o The file NQueensLab.shtml contains this write-up.
+o Two image files, GoldCrown.gif and SilverCrown.gif (images of crowns).
+o The grid.jar Java archive (jar) file contains a library of classes that can be used to model a two-dimensional grid as described above.
+▪ BoundedGrid (class that represents the two-dimensional grid)‡
+▪ Location (class that represents the row and column positions of a location in the grid)‡
+▪ ColorBlock (class whose objects represent blocks of color put in a grid)
+The documentation for these files can be found by downloading the GridPkgClassDocs.zip file.
+o The JavaSourceFiles folder contains the source files for the NQueens Lab.
+▪ NQueensLab (contains the main method)
+▪ NQueens (the class that will implement the solution to the N Queens Problem)
+▪ Queen (represents a queen on the board)
+Note: All of the classes in the JavaSourceFiles folder and the grid.jar Java archive file are covered by the GNU General Public License.
+2. Compile and run the program. You should see an 8 x 8 "chess board" with no queens.
+3. Complete the numQueens and removeQueen methods, without adding any additional instance variables.  To test the removeQueen method, modify the placeQueen method to add a queen to any arbitrary column (your choice) of the correct row for that queen, display the environment, and then remove the queen and redisplay the environment.  Modify the solve method to place one queen.  Run the program.  You should see one queen (or color block) appear and then disappear from the environment.
+4. Modify the placeQueen method to recursively place all the queens in arbitrary columns (or the same arbitrary column).  Think about where you should place the recursive call if you want to see the queens appear in each row, one-by-one, and then disappear in reverse order.  Make sure you remember to include a base case.  Do you need to modify the solve method to place all the queens?  If so, do it.
+5. Fully implement the placeQueen method so that it checks column by column to find an OK location to place this queen, until the queen has been successfully placed in a column and all the queens after her have been successfully placed also.  Since the locationIsOK method always returns true, the queens should fill in the first column.
+6. Modify the locationIsOK method to return false if any queens have already be placed in the same column as the location parameter.  When you have this working you should see the queens fill in the diagonal from location (0, 0) to location (n-1, n-1).
+7. Modify the locationIsOK method again to also return false if any queens have already been placed on the board in locations that are on the diagonal from the location parameter.
+
+
+‡The Location class comes directly from the AP® Marine Biology Simulation case study; BoundedGrid was inspired by the MBS BoundedEnv class.  AP is a registered trademark of the College Entrance Examination Board. The Marine Biology Simulation case study was copyrighted in 2002 by the College Entrance Examination Board.  It is available on the web from the College Board web site (www.collegeboard.com and apcentral.collegeboard.com).
+ 
+Copyright Alyce Brady, 2002.
+2.   Cookie Monster.  (Litvin, p 83.)
+
+2
+Write a program, using recursion, in which Cookie Monster finds the optimal path from the upper left corner (0, 0) to the lower right corner (SIZE – 1, SIZE – 1) in a cookie grid.  The elements of the grid contain cookies (a non-negative number) or barrels, which is represented by -1.  On each step Cookie Monster can only go down or to the right.  He is not allowed to step on barrels.  The optimal path contains the largest number of cookies.
+ 
+The program reads the cookies grid from a file and reports the number of cookies on the optimal path.  (The path itself is not reported.)  
+ 
+Hint:  Note that the maximum number of cookies accumulated at a position (row, col) is related to the previous positions as follows:
+ 
+optimalPath(row, col) = cookies[row][col] +  
+the larger of the two:
+(optimalPath(row-1, col), optimalPath(row, col-1))
+ 
+The only problem is invalid positions, either out of bounds or barrels.  How can we define optimalPath for an invalid position so that the above formula still works?  Identify the base case(s) and recursive case(s).
+ 
+ 
+ 
+ 
+
+3
+ 
+3. Escape a Maze.  (Lewis, Chase, Sudol, p. 150)
+The goal is to get from the top left corner (the entrance to the maze) to the exit (some character), leaving a trail of attempted paths and ultimately a successful path through the maze, if one exists.  Use only vertical and horizontal moves, not diagonal ones.  Use a driver program and a resource class.  Use any characters you want and let the size of the maze be a variable.  The output should be the original maze, a message of success or failure, and then the solved maze.  For example, using size 9 x 14:
+ 
+##AAIII....III
+I#IIIA###II..I
+.####I#I#I....
+IIII#I#I#IIIII
+###I###I#IAAAA
+#I#IIII###IIAA
+#I######IAAAAA
+#IIIIIIIIIIIII
+###########AAA
+         #
+....III....III
+I.III....II..I
+.....I.I.I....
+IIII.I.I.IIIII
+...I...I.I....
+.I.IIII...II..
+.I......I.....
+.IIIIIIIIIIIII
+..............
+         *
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Success!
