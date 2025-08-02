@@ -1,0 +1,52 @@
+Fibonacci Talking Points
+ 
+1. Anything you can do iteratively, you can do recursively, and vice-versa.
+ 
+2. Some situations are naturally recursive (e.g., branching, tree-like, or nested), some are naturally iterative.
+ 
+3. Using recursion to calculate the Fibonacci sequence results in exponential time (2n), which is pathological.
+ 
+ 
+          1            1
+ 
+1
+1
+2
+3
+5
+8
+ 
+ 
+ 
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+          |             |
+   1     f(0)     f(1)    1      1
+    \        \       /         |       |
+   f(1)     f(2)        f(0)   f(1)
+        \     /              \    /
+         f(3)               f(2)
+               \            /               \         /
+Mathematically:
+1 * 2 * 2 * 2 * 2 * 2 * 2 * . . .  = 2n
+ 
+Every n+1 doubles the tree, i.e., exponential growth.
+                  \       /                  \     /
+                    f(4)                    f(3)
+                          \               /
+                            \           /
+                                f(5)
+                                       \
+                                          \
+                                             f(6)
+ 
+ 
+4. On the other hand, some recursive algorithms can be (log2 n), which is better than linear.  Excellent! 
