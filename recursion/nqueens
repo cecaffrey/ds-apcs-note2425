@@ -1,0 +1,56 @@
+NQueens
+ 
+ 
+Can you place eight queens on a chessboard so that no queen can attack any other queen?
+ 
+Give it a try.  Where do you start? Where does the second queen go?  Where does the third queen go?  Et cetera.
+ 
+The 8-Queens problem can be solved by exhaustive trial-and-error, a.k.a., recursion.
+ 
+1. Open the NQueens folder.  You will see the following files:
+• NQueensDriver:    driver class that contains the main method
+• NQueens:  the class that implements the solution to the NQueens problem.  You will complete and submit in NQueens.java.  (Just so you know, Windows graphics programs do not run on CodePost’s linux system.)
+ 
+2. ​Compile and run the program. You should see an 8 x 8 chess board with no queens.
+ 
+3. Notice that the solve method just calls and returns isPlaced .   Don’t change solve!  
+ 
+4. The method isPlaced is going to be the recursive method.  It will recursively place a queen in a new row, then iteratively try each column in that row. If you successfully reach the 8th row, you are done.  (It’s also the base case for the recursion.) Return true.
+ 
+5. Now let’s slowly build up to the full recursive isPlaced.  In isPlaced, call addQueen, and then remove the queen. You should see one queen (or the color red) appear and then disappear.
+ 
+  private boolean isPlaced(int row)
+  {
+     if(row == N)            //all queens have been placed
+        return true;
+     if(locationIsOK(row,0))      
+           addQueen(row, 0);
+     removeQueen(row, 0);  
+     return true;  
+  }
+ 
+6. ​Add one command to the isPlaced method to recursively place all the queens in column 0. Where do you place the recursive call if you want to see the queens appear in each row, one-by-one, and then disappear in reverse order?  What is the base case? Since the locationIsOK method currently returns only true, you should see the queens being placed vertically down in column 0, then removed in reverse order.
+ 
+ 
+ 
+7. So far, all the queens have been placed in column 0. In isPlaced write a for-loop that places and removes the queens in each column in turn.  Now you have recursion for each row and iteration for each column.  Be able to explain the placements of the queens as they appear and are removed.
+ 
+ 
+ 
+8. So far, locationIsOK has always returned true.  Now modify the locationIsOK method to return false if any queens have already been placed in the same column above the row parameter. When you have this working, you should see the queens fill in the diagonal from location (0, 0) to location (n-1, n-1).
+ 
+ 
+9. ​Add some nested loops in the locationIsOK method that return false if any queens have already been placed on the board in locations that are diagonally up to the left and right from the location parameter.  (The code for this part is more difficult than the code for the recursion.  On the other hand, understanding the recursion is more difficult than understanding nested loops.)
+ 
+10.   Now it’s time to think about actually solving the 8-Queens problem (in isPlaced).  We know the base case is when all 8 queens have been successfully placed.  Let’s just place queen-0 at the top left.  We know queen-1 will be on the next row down, but we must (let’s do it iteratively) try each location on that row.  If that location is not OK, then we try the next location on that same row.  If the location is OK, we add that queen and recur to try to place queen-2 somewhere on its row.  If we can’t place queen-2 (i.e., if isPlaced returns false), we remove queen-1 and try the next location on queen-1’s row.  After exhaustively trying and recurring, we hope to find a solution.  
+ 
+11. Submit NQueens.
+ 
+ 
+ 
+Easy Extension:  Prompt the user to enter the size of the board.  If the NQueens for that number of queens can be solved, show the solution.  If not, print “Solution not found”.
+ 
+Challenging Extension:  Make isPlaced doubly recursive.  That is, use recursion to try placing queens in both rows and columns.  The header should be:
+ 
+       private boolean isPlaced(int row, int col)
+ 
