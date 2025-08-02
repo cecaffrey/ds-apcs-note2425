@@ -1,0 +1,70 @@
+Effect of Doubling the Size on Running Time
+​
+ 
+name
+Big-O notation
+if the data is doubled, then the work is:
+if n = 500 and takes 3 ms,
+then n=1000 will take __ms
+constant
+ 
+O(1)
+unchanged
+ 
+ 
+log n
+ 
+O(log n)
+increased by 1 step
+ 
+linear
+ 
+O(n)
+doubled
+ 
+ 
+n log n
+linearithmic
+O(n log n)
+2x < work < 4x
+ 
+ 
+ 
+ 
+O(n3/2)
+increased by a factor of 2
+ 
+ 
+quadratic
+ 
+O(n2)
+increased by a factor of 22
+ 
+ 
+ 
+O(n 3)
+increased by a factor of 23
+ 
+exponential
+ 
+O(2n)
+increased by a factor of 2n
+ 
+ 
+ 
+ 
+2. ​Give the Big-O notation of:  
+ 
+a. Selection Sort on random data ______.   On sorted data ______.
+b. Insertion Sort, random data ______.   On sorted data ______. Backwards data ______.
+c. multiplying two n x n matrices ______.
+d. finding Fibonacci numbers iteratively ______.    By recursion ______.
+e. generating all permutations of n symbols ______.
+f. merging two sorted lists ______.
+g. Merge Sort ______.
+h. Quick Sort, average case ______.    Quick Sort, worst case (bad pivot) ______.
+i. finding a max or a min among n unsorted elements (linear search)  ______.
+j. The average case for a Binary Search on a sorted list of n elements ______.
+k. finding the median value in a sorted array ______.
+l. returning the kth element in an array, either sorted or unsorted ______.
+m. ​printing an array of length n  ______.
