@@ -1,0 +1,108 @@
+Big-O Worksheet 1     Name____________________
+Instructions: The following algorithms will display a different number of stars, depending on the value in nNum. Classify  the Big-O growth rate, and justify your answer with a calculation.
+ 
+notation ​​name​effect of doubling data
+O(1) ​​constant​no effect​
+O(log n) ​​logarithmic​increases work by 1
+O(n) ​​linear​doubles work
+O(n · log n) ​sometimes called "linearithmic" or "supralinear"​2x < work < 4x
+O(n2) ​​quadratic​quadruples work
+O(2n) ​​exponential​if data increases by 1,work doubles
+O(n!) ​​factorial​if data increases by 1, work > 2x
+ 
+1.  How many stars would be displayed by the following algorithm?  __
+How many stars would be displayed if  nNum were doubled?____
+int nNum = 10;
+for(int nOuter = 0; nOuter < nNum; nOuter++)
+ ​for(int nInner = 0; nInner < nNum; nInner++)
+    ​System.out.print("*");
+ 
+Big-O notation: ______________ Justify your answer: ______________
+ 
+ 
+2. How many stars would be displayed by the following algorithm?  ______
+    How many stars would be displayed if  nNum were doubled?__________
+​int nNum = 10;
+​for(int nOuter = 0; nOuter < nNum; nOuter++)
+    System.out.print("*");
+ 
+​Big-O notation: __________________ Justify your answer: ________________
+ 
+ 
+3.  How many stars would be displayed by the following algorithm?  ____
+​How many starts would be displayed if  nNum were doubled?_______
+​int nNum = 10;
+​for(int nOuter = 1; nOuter <= nNum; nOuter*=2)
+    System.out.print("*");
+ 
+​Big-O notation: _____________ Justify your answer: __________
+                                                                                                           
+ 
+ 
+4.  How many stars would be displayed by the following algorithm?  ______
+     How many stars would be displayed if nNum was doubled?____________
+​int nNum = 10;
+​char[] caStars = new char[100];
+​for(int nI = 0; nI < 100; nI++)
+  ​caStars[nI] = '*';
+​System.out.print("" + caStars[nNum]);
+ 
+Big-O notation: ______________ Justify your answer: _______________________
+                                                                                             
+ 
+ 
+ 
+5. ​How many stars would be displayed by the following algorithm?  ____________
+​How many stars would be displayed if nNum were increased by 1?___________
+​int nNum = 5;
+​int nStars = 1;
+​while(nNum > 0)
+​{
+​​nStars*=2;
+​​nNum--;
+​}
+​for(int nI = 0; nI < nStars; nI++)
+  ​System.out.print("*");
+ 
+​Big-O notation: _______________ Justify your answer: __________________
+ 
+ 
+6. ​How many stars would be displayed by the following algorithm?  _____________
+​How many stars would be displayed if  nNum were doubled?_______________
+​int nNum = 10;
+​for(int nOuter = 1; nOuter <= nNum; nOuter++)
+​for(int nInner = 1; nInner <= nNum; nInner*=2) 
+    ​System.out.print("*");
+ 
+​Big-O notation: ___________________ Justify your answer: ___________________
+ 
+ 
+7. ​How many stars would be displayed by the following algorithm?  _________
+​How many stars would be displayed if nNum were doubled?______________
+   ​public static void main(String[] args) {
+       int nNum = 10;
+       printStar(nNum);
+   ​}  
+   ​public static void printStar(int nNum){
+   ​​if(nNum > 0){
+   ​​System.out.print('*');
+   ​printStar(nNum - 1);
+   ​}
+   }
+​Big-O notation: _________________ Justify your answer: ________________
+ 
+ 
+8. ​How many stars would be displayed by the following algorithm?  _______
+​How many stars would be displayed if  nNum were doubled?___________
+   ​public static void main(String[] args) {
+       int nNum = 10;
+       printStar(nNum);
+   ​}  
+   ​public static void printStar(int nNum){
+   ​​if(nNum > 0){
+   ​​System.out.print('*');
+   ​​printStar(nNum/2);
+   ​}
+   }
+​Big-O notation: ________________ Justify your answer: _________________
+ 
