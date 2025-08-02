@@ -1,0 +1,106 @@
+Cemetery
+ 
+ 
+In this assignment, you will use a real data set and determine some information from it.  The data you will use is from the St. Mary Magdalene Cemetery on Old Fish Street in London.  The burials recorded at this cemetery are from 1813-1853.  
+ 
+The first five entries of the data set are formatted exactly as shown:
+ 
+       ST MARY MAGDALENE OLD FISH STREET CITY OF LONDON
+            Burials 5th Jan 1813 - 10th July 1853
+NAME                     BURIAL DATE AGE  RESIDENTIAL ADDRESS
+-----------------------  ----------- ---  ----------------------------
+John William ALLARDYCE   17 Mar 1844 2.9  Little Knight Ryder Street
+Frederic Alex. ALLARDYCE 21 Apr 1844 0.17 Little Knight Ryder Street
+Philip AMIS              03 Aug 1848 1    18 1/2 Knight Rider Street
+Thomas ANDERSON          06 Jul 1845 27   2, Bennet's Hill
+Edward ANGEL             20 Nov 1842 22   Crane Court Lambeth Hill
+< . . . >
+ 
+Objective
+Read in the data, clean the data to handle any inconsistencies, store the data in an array of Person objects, and then find the youngest and oldest people and print the two names and ages.
+ 
+Here is a picture of an array of Person objects:
+ 
+arrayOfBurials
+ 
+Person object
+Person object
+Person object
+Person object
+. . .
+Person object
+ 
+ 
+[0]
+[1]
+[2]
+[3]
+. . .  
+    [n]
+ 
+ 
+ 
+ 
+ 
+1) Note that each line in the file contains four items: name, burial date, age at death, and address.  In this lab, you are to ignore the address.  What is the best way to extract the three items you need from each line?
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2) You will store the name (as a String), burial date (String), and age at death (double) in the fields of the Person object.  As always, the lines from the file are read as Strings.  Since the 3-arg constructor in the Person class is
+ 
+   public Person(String name, String burialDate, String age)
+
+you must change the String argument into a double for the field.  Not only that, to make things even more interesting, the data for the deceased person’s age comes in a mixed format, depending on the information taken from the tombstones, either whole-number years (like 64), partial years (expressed in decimal format, like 0.17), the number of weeks (like 14w), or the number of days (like 4d).  You need to convert all those mixed formats into a decimal number of years as shown:
+String argument
+double value (no more than 4 digits)
+64
+64.0
+0.17
+0.17
+14w
+0.2685
+4d
+0.011
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+​Maybe write a private helper method to do the conversion?
+ 
+3) Put each Person object into an array.  Now the fun begins.  For this lab, find the youngest and oldest people and print the two names and ages, as shown in the output below.
+ 
+ 
+ 
+Example Input (using cemetery_short.txt):
+John William ALLARDYCE   17 Mar 1844 2.9  Little Knight Ryder Street
+Frederic Alex. ALLARDYCE 21 Apr 1844 0.17 Little Knight Ryder Street
+Philip AMIS              03 Aug 1848 1    18 1/2 Knight Rider Street
+Thomas ANDERSON          06 Jul 1845 27   2, Bennet's Hill
+Edward ANGEL             20 Nov 1842 22   Crane Court Lambeth Hill
+Lucy Ann COLEBACK        23 Jul 1843 14w  Lambeth Hill
+Thomas William COLLEY    08 Aug 1833 4d   Lambeth Hill
+Joseph COLLIER           03 Apr 1831 58   Lambeth Hill
+ 
+ 
+Example Output (using cemetery_short.txt):
+In the St. Mary Magdalene Old Fish Cemetery:
+Name of youngest person: Thomas William COLLEY
+Age of youngest person: 0.011
+Name of oldest person: Joseph COLLIER
+Age of oldest person: 58.0
+ 
+ 
+Assignment
+The shell is called Cemetery.java.   The driver has been written for you, but you will implement five class methods as well as override toString (details in the shell).  You are also to design and implement the Person class.  
+ 
+Extension
+Brainstorm ideas for other investigations using this data set.  Program one of them.
