@@ -1,0 +1,108 @@
+Customers in One Queue
+ 
+C
+C
+C
+C
+C
+ 
+ 
+ 
+ 
+The diagram shows five customers in a queue.  The first customer in the queue is being served.  You are going to run a simulation and collect data about the time it takes to serve these customers.  
+ 
+The driver prompts the user to enter the duration of the simulation.  Customers randomly arrive and join the queue.  After the duration is finished, no more customers are allowed in, but all the customers already in the queue will be served.
+ 
+After everyone has been served, write these calculations to a file:
+• The total number of customers served during the simulation.
+• The average time each customer waited to get served, from the time they joined the queue to the time they got served and departed.
+• The longest time that a customer waited.
+• The length of the longest queue of customers.
+ 
+What data do you need to collect?
+ 
+ 
+ 
+ 
+ 
+Algorithm in the serveTheCustomers method
+   What happens in each minute?  What might happen in each minute?  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Design the Customer class:
+private fields?  
+ 
+ 
+constructor?
+ 
+ 
+ 
+instance methods?
+ 
+ 
+ 
+ 
+ 
+For each minute, write to a file:
+• The minute, starting from 1, who is being served, and the queue of customers.
+• When a Customer departs, write that customer’s data and the total time spent by all the customers.
+ 
+Note that the queue could be empty!  You will have to deal with that in your code.
+ 
+minute 1: Serving null. Queue []
+ minute 2: Serving null. Queue []
+ minute 3: Serving 4-Customer:3. Queue [4-Customer:3]
+ minute 4: Serving 3-Customer:3. Queue [3-Customer:3]
+ minute 5: Serving 2-Customer:3. Queue [2-Customer:3]
+ minute 6: Serving 1-Customer:3. Queue [1-Customer:3]
+            Depart  0-Customer:3, wait time was 4 minutes.  Total time so far: 4
+ 
+ minute 7: Serving null. Queue []
+minute 8: Serving null. Queue []
+minute 9: Serving 2-Customer:9. Queue [2-Customer:9]
+minute 10: Serving 1-Customer:9. Queue [1-Customer:9]
+          Depart  0-Customer:9, wait time was 2 minutes.  Total time so far: 6
+
+minute 11: Serving 3-Customer:11. Queue [3-Customer:11]
+minute 12: Serving 2-Customer:11. Queue [2-Customer:11, 2-Customer:12]
+minute 13: Serving 1-Customer:11. Queue [1-Customer:11, 2-Customer:12, 3-Customer:13]
+          Depart  0-Customer:11, wait time was 3 minutes.  Total time so far: 9
+
+minute 14: Serving 2-Customer:12. Queue [2-Customer:12, 3-Customer:13]
+minute 15: Serving 1-Customer:12. Queue [1-Customer:12, 3-Customer:13, 5-Customer:15]
+          Depart  0-Customer:12, wait time was 5 minutes.  Total time so far: 14
+
+minute 17: Serving 3-Customer:13. Queue [3-Customer:13, 5-Customer:15]
+minute 18: Serving 2-Customer:13. Queue [2-Customer:13, 5-Customer:15]
+minute 19: Serving 1-Customer:13. Queue [1-Customer:13, 5-Customer:15]
+          Depart  0-Customer:13, wait time was 7 minutes.  Total time so far: 21
+
+minute 20: Serving 5-Customer:15. Queue [5-Customer:15]
+minute 21: Serving 4-Customer:15. Queue [4-Customer:15]
+minute 22: Serving 3-Customer:15. Queue [3-Customer:15]
+minute 23: Serving 2-Customer:15. Queue [2-Customer:15]
+minute 24: Serving 1-Customer:15. Queue [1-Customer:15]
+          Depart  0-Customer:15, wait time was 10 minutes.  Total time so far: 31
+
+minute 25: Serving null. Queue []
+
+Total customers served = 6
+Average wait time = 5.1
+ Longest wait time = 10
+Longest queue = 3
+ 
+The user entered 15 minutes for the simulation below.  The chance of a customer arriving in each minute was
