@@ -1,0 +1,91 @@
+Priority Queues
+Preparation for SeniorsFirst
+ 
+1.  Use a priority queue in any problem where elements enter in a random order but are removed according to their priority.   For example:
+• letters (of the alphabet) enter the queue randomly, but come out in alphabetical order.
+• in the lunch line, all seniors get served first, juniors next, sophomores next, and freshman last.
+• in a hospital, patients who are more likely to die, but are not dead yet, get the organ transplant first.
+• in a print queue, shorter print runs get processed before the longer print runs.
+ 
+"According to their priority" means something different depending on the objects in the program.  To make the "priority part" of the priority queue work, Java requires that each element in the queue be a Comparable.  As you know, the Comparable interface has a compareTo method. You get to define what "priority" means in the given situation.  A higher priority means a lower compareTo return value. You have seen this behavior before with strings, for "a".compareTo("b") returns a negative number. Write reasonable compareTo methods for each example below.
+ 
+class Student implements
+                 Comparable<Student>
+class Patient implements
+                 Comparable<Patient>
+{
+{
+ private String myGradYear;
+ private boolean isAlive;
+ public int compareTo(Student obj)
+ private double probDying;
+ {
+ public int compareTo(Patient obj)
+   
+ {
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.  If two items to be removed are of the same priority (i.e., two seniors are in the lunch line), which one gets removed first? If two items are of equal priority, the one that is removed first is unpredictable.  They are not necessarily removed in FIFO order, which is what most people expect.  Java implements a priorityQueue as a heap, which we will study later.  A heap does not guarantee that the items of the same priority are removed FIFO.
+ 
+3.  Look at your cheat sheet.  What methods are in the PriorityQueue class?  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4.  You should be aware of the Big-O efficiencies for several implementations of PriorityQueue.  Five common implementations are:
+insertion
+ 
+deletion
+ 
+ 
+ 
+insertion
+ 
+remove()
+ 
+ 
+i.  An array with elements in random order.  Insertion is done at the end of the list.  Removing requires a linear search, then a shift.              
+add()
+ 
+peek()
+ 
+ 
+ii.   An array with elements sorted by priority, highest priority elements at the end. Insertion requires finding the insertion point and then shifting some of the array elements. Deletion means removing the last element in the array.  
+insertion
+ 
+deletion
+ 
+ 
+ 
+iii.  A linked list with elements in random order.  Insertion is done at the front of the list.  Deletion requires a linear search.
+ 
+add()
+ 
+remove()
+ 
+ 
+iv.  A linked list with elements sorted by priority, highest priority elements in front.  Insertion requires a traversal.  Deletion means removal of the first node.        
+ 
+insertion
+O(log n)
+ 
+deletion
+O(log n)
+ 
+ 
+v.  A minimum heap.  A heap is a binary tree structure with the property that the value in every node is less than or equal to the value in each of its children.  We’ll study min-heaps when we study trees.   After either insertion or deletion, the binary tree is restored to order (reheaped) in O(log n) time.   java.util.PriorityQueue actually is a heap.
+ 
