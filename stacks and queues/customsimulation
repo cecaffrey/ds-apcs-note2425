@@ -1,0 +1,43 @@
+minute 1: Serving null. Queue []
+minute 2: Serving 2-Customer:2. Queue [2-Customer:2]
+minute 3: Serving 1-Customer:2. Queue [1-Customer:2]
+           Depart  0-Customer:2, wait time was 2 minutes.  Total time so far: 2
+
+minute 4: Serving 5-Customer:4. Queue [5-Customer:4]
+minute 5: Serving 4-Customer:4. Queue [4-Customer:4]
+minute 6: Serving 3-Customer:4. Queue [3-Customer:4, 6-Customer:6]
+minute 7: Serving 2-Customer:4. Queue [2-Customer:4, 6-Customer:6]
+minute 8: Serving 1-Customer:4. Queue [1-Customer:4, 6-Customer:6, 3-Customer:8]
+           Depart  0-Customer:4, wait time was 5 minutes.  Total time so far: 7
+
+minute 9: Serving 6-Customer:6. Queue [6-Customer:6, 3-Customer:8]
+minute 10: Serving 5-Customer:6. Queue [5-Customer:6, 3-Customer:8, 4-Customer:10]
+minute 11: Serving 4-Customer:6. Queue [4-Customer:6, 3-Customer:8, 4-Customer:10, 4-Customer:11]
+minute 12: Serving 3-Customer:6. Queue [3-Customer:6, 3-Customer:8, 4-Customer:10, 4-Customer:11]
+minute 13: Serving 2-Customer:6. Queue [2-Customer:6, 3-Customer:8, 4-Customer:10, 4-Customer:11]
+minute 14: Serving 1-Customer:6. Queue [1-Customer:6, 3-Customer:8, 4-Customer:10, 4-Customer:11]
+           Depart  0-Customer:6, wait time was 9 minutes.  Total time so far: 16
+
+minute 15: Serving 3-Customer:8. Queue [3-Customer:8, 4-Customer:10, 4-Customer:11]
+minute 17: Serving 2-Customer:8. Queue [2-Customer:8, 4-Customer:10, 4-Customer:11]
+minute 18: Serving 1-Customer:8. Queue [1-Customer:8, 4-Customer:10, 4-Customer:11]
+           Depart  0-Customer:8, wait time was 10 minutes.  Total time so far: 26
+
+minute 19: Serving 4-Customer:10. Queue [4-Customer:10, 4-Customer:11]
+minute 20: Serving 3-Customer:10. Queue [3-Customer:10, 4-Customer:11]
+minute 21: Serving 2-Customer:10. Queue [2-Customer:10, 4-Customer:11]
+minute 22: Serving 1-Customer:10. Queue [1-Customer:10, 4-Customer:11]
+           Depart  0-Customer:10, wait time was 12 minutes.  Total time so far: 38
+
+minute 23: Serving 4-Customer:11. Queue [4-Customer:11]
+minute 24: Serving 3-Customer:11. Queue [3-Customer:11]
+minute 25: Serving 2-Customer:11. Queue [2-Customer:11]
+minute 26: Serving 1-Customer:11. Queue [1-Customer:11]
+           Depart  0-Customer:11, wait time was 15 minutes.  Total time so far: 53
+
+minute 27: Serving null. Queue []
+
+Total customers served = 6
+Average wait time = 8.8
+Longest wait time = 15
+Longest queue = 4
