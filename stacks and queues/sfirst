@@ -1,0 +1,102 @@
+Seniors First
+ 
+Se
+Ju
+Fr
+Ju
+Fr
+ 
+ 
+ 
+ 
+So
+Ju
+Fr
+Se
+Ju
+Fr
+ 
+ 
+ 
+A certain school gives privileges to its students according to their academic class.  One privilege is getting served in the lunch line, where students join the queue at random, but get served according to the priority of their academic class, in the order Seniors, Juniors, Sophomores, and Freshmen. A complication is that, if an underclassman is already getting served, then an arriving Senior cannot take cuts but has to wait in the queue.  After the underclassman is served and departs, then the highest priority student rises to the front of the queue. The data structure to model this situation is, of course, a Priority Queue. What method decides who rises to the front of the priority queue? ____________  
+ 
+Below is a sample run showing who is at the front getting served and the state of the Priority Queue.  (Be aware that the Priority Queue you see is printed in its heap order, which does not display in strict order of precedence.)  
+ 
+1 minute 1. Serving 5-Se:1. Priority queue [5-Se:1]
+2 minute 2. Serving 4-Se:1. Priority queue [4-Se:1]
+3 minute 3. Serving 3-Se:1. Priority queue [3-Se:1]
+4 minute 4. Serving 2-Se:1. Priority queue [2-Se:1]
+5 minute 5. Serving 1-Se:1. Priority queue [1-Se:1, 3-Ju:5]
+6           Depart  0-Se:1, wait time was 5 minutes.  Total time so far: 5
+7
+8 minute 6. Serving 3-Ju:5. Priority queue [3-Ju:5]
+9 minute 7. Serving 2-Ju:5. Priority queue [2-Ju:5]
+10 minute 8. Serving 1-Ju:5. Priority queue [1-Ju:5]
+11           Depart  0-Ju:5, wait time was 4 minutes.  Total time so far: 4
+12
+13 minute 9. Serving 6-Fr:9. Priority queue [6-Fr:9]
+14 minute 10. Serving 5-Fr:9. Priority queue [5-Fr:9, 4-So:10]
+15 minute 11. Serving 4-Fr:9. Priority queue [4-Fr:9, 4-So:10]
+16 minute 12. Serving 3-Fr:9. Priority queue [3-Fr:9, 4-So:10, 6-Ju:12]
+17 minute 13. Serving 2-Fr:9. Priority queue [2-Fr:9, 4-So:10, 6-Ju:12]
+18 minute 14. Serving 1-Fr:9. Priority queue [1-Fr:9, 4-So:10, 6-Ju:12, 6-Fr:14]
+19           Depart  0-Fr:9, wait time was 7 minutes.  Total time so far: 7
+20
+21 minute 16. Serving 6-Ju:12. Priority queue [6-Ju:12, 4-So:10, 6-Fr:14]
+22 minute 17. Serving 5-Ju:12. Priority queue [5-Ju:12, 4-So:10, 6-Fr:14]
+23 minute 18. Serving 4-Ju:12. Priority queue [4-Ju:12, 4-So:10, 6-Fr:14]
+24 minute 19. Serving 3-Ju:12. Priority queue [3-Ju:12, 4-So:10, 6-Fr:14]
+25 minute 20. Serving 2-Ju:12. Priority queue [2-Ju:12, 4-So:10, 6-Fr:14]
+26 minute 21. Serving 1-Ju:12. Priority queue [1-Ju:12, 4-So:10, 6-Fr:14]
+27           Depart  0-Ju:12, wait time was 10 minutes.  Total time so far: 14
+28
+29 minute 22. Serving 4-So:10. Priority queue [4-So:10, 6-Fr:14]
+30 minute 23. Serving 3-So:10. Priority queue [3-So:10, 6-Fr:14]
+31 minute 24. Serving 2-So:10. Priority queue [2-So:10, 6-Fr:14]
+32 minute 25. Serving 1-So:10. Priority queue [1-So:10, 6-Fr:14]
+33           Depart  0-So:10, wait time was 16 minutes.  Total time so far: 16
+34
+35 minute 26. Serving 6-Fr:14. Priority queue [6-Fr:14]
+36 minute 27. Serving 5-Fr:14. Priority queue [5-Fr:14]
+37 minute 28. Serving 4-Fr:14. Priority queue [4-Fr:14]
+38 minute 29. Serving 3-Fr:14. Priority queue [3-Fr:14]
+39 minute 30. Serving 2-Fr:14. Priority queue [2-Fr:14]
+40 minute 31. Serving 1-Fr:14. Priority queue [1-Fr:14]
+41           Depart  0-Fr:14, wait time was 18 minutes.  Total time so far: 25
+42
+43 minute 32. Serving null. Priority queue []
+44 Customer    Total    Longest     Average Wait
+45 Senior         1        5        5.0
+46 Junior         2        10       7.0
+47 Sophomor       1        16       16.0
+48 Freshman       2        18       12.5 
+For each of the four academic classes, we will count the number who were served, the longest wait time, and the average wait time.  Here is the output file of one 15-minute simulation:
+Hints on the Customer Class
+You will need to modify the previous Customer class so that it works in a priority queue.  How?
+   
+1. You will need a new int field in Customer to store its academic class.  (Alternatively, some students make 4 subclasses to model each kind of Customer.) Use 0 for Seniors, 1 for Juniors, 2 for Sophomores, and 3 for Freshman. You will these use integers to make compareTo work properly.
+ 
+2. You will need a new boolean field atFront in Customer to store whether this customer is at the front, getting served.  The atFront field will be used in the compareTo method to keep Seniors from cutting in front of an underclassman who already at the front, being served.
+ 
+3. The Customer class uses a 1-arg constructor to store the time of arrival.  Both the time spent getting their order (int)(Math.random() * 5 + 2); and the customer’s academic class (int)(Math.random() * 4); are set at random.
+ 
+4. The compareTo method in Customer compares this customer to another and returns either a negative integer, 0, or a positive integer. Remember that in priority queues, the higher priority returns the lower number.  In this lab, the customer at the front has the highest priority, then Seniors, then Juniors, then Sophomores, and last Freshmen. Finally, if there are two or more students of the same class in the queue, the one who arrived earliest gets served first.  
+ 
+5. The toString method needs to return the time spent getting served, the academic class, and the time of arrival.  For example, a sophomore who arrived at minute 8 and will spend 6 minutes at the front getting served displays as 6-So:8
+ 
+Hints on the Algorithm
+6. SeniorsFirst.java is a modification of CustomersInQueue.java in which Queue of Customer is replaced by a PriorityQueue of Customer.  
+ 
+7. It will be convenient to store the statistics in three parallel arrays of int.
+String[] classes = new String[]{"Senior", "Junior", "Sophomor", "Freshman"};
+int[] served = new int[]{0,0,0,0};
+int[] longestWait = new int[]{0,0,0,0};
+int[] totalWait = new int[]{0,0,0,0}; 
+ 
+8. The driver prompts the user to enter the duration of the simulation.  Customers will enter and join the priority queue to be served.  After the duration is finished, no more customers are allowed in, but all those already in the priority queue will be served.  Then outfile the statistics.  
+ 
+Extension
+Make a class MyPriorityQueue which implements a priority queue.  It's your choice as to how you will implement the priority queue.
+ 
+Test your resource class with SeniorsFirst as the driver.  You should not have to make any other changes in SeniorsFirst.
+ 
