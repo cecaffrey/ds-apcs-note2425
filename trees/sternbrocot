@@ -1,0 +1,59 @@
+Stern-Brocot Trees
+Lab by  Nicholas Houghland, May 2013
+
+The Stern-Brocot tree is an infinite and complete binary tree. It contains all rational numbers, all exactly once. It is created by starting with the fractions 1/0 and 0/1. While 1/0 is not a rational number, it is useful in the construction of the tree. A fraction in the tree is made by finding the mediant of two other fractions in the tree. A mediant fraction is a fraction created by adding the numerators and denominators of two other fractions. So a fraction a/b and another fraction c/d have the mediant (a+c)/(b+d). It is always true that the mediant has a value between those of its component fractions.
+ 
+Building the Tree: This is where the 1/0 and 0/1 come in. They act like two parents of the root node, 1/1. 0/1 acts like the left parent and 1/0 acts like the right parent. This is why the root of the tree is 1/1, the mediant of 1/0 and 0/1; (1+0)/(0+1)=1/1. This is a binary tree, so they are not included as nodes in the tree, but they are necessary to calculate all of its values. For example, the left child of 1/1 should be 1/2. This is because its other component is 0/1. 0/1 is the left parent, and therefore its right child is 1/1. (1+0)/(1+1)=1/2.
+ 
+Finding Mediants: A mediant fraction has two components, a/b and c/d. These are called the left component and the right component. If a fraction a/b is chosen at random from the tree, it must have two children, one to the left and the other to the right. Each of these two children is the mediant of two other component fractions. One of these two components will always be a/b (the parent), and the other is one of its ancestors. For the left child, a/b is the right component, since a/b lies to the right of its left child. The other component is the first ancestor of a/b that lies to its left. The opposite is true for the right child, i.e. a/b lies to the left of its right child, therefore a/b is the left component, and you need to find the first ancestor that lies to its right. In other words, by working up the tree, you can find the second component of a mediant fraction by finding the ancestor that lies to the same side of a/b as its child. This is easy to see physically in the Stern-Brocot tree. Here is an example:
+ 
+ 
+ 
+ 
+As you can see, the parent of 2/3 is 1/2. 2/3 is the right child of 1/2, so 1/2 lies to the left of 2/3, making it the left component. If you work up the tree from there, you will see that 1/1 is the first fraction that lies to the right of 2/3, making it the right component. When added, (1+1)/(1+2) = 2/3. You can also see this by looking at the string of 1s and 0s that identify the location of a fraction. For example, if you are going to insert a fraction at 1110000, the two components will be found by removing the last digits of the string until the first time it ends with either a ‘0’ or a ‘1’. In this case, the two components would be located at 111000 (the parent), and at 111. NOTE: It may be that the string contains either no ‘0’s or no ‘1’s. In this case, you may need to use 1/0 or 0/1 as a component of the new fraction.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+See if you can fill in the blanks of this tree. 
+ 
+                        4/1
+                3/1
+                        5/2
+1/0       2/1
+                         5/3
+                 3/2
+                       4/3
+  1/1
+                         3/4
+                 2/3
+                        3/5
+0/1       1/2
+                         2/5
+                1/3
+                         1/4
+Assignment
+Create a program that can generate the first n levels of the Stern-Brocot tree. Ask the user for the number of levels to print.
+Ask the user for a fraction and print its location in 0s and 1s representing left and right, respectively.
+ 
+Extension
+Continued Fractions: A continued fraction is in the form of a0+1/(a1+1/(a2+1/(a3+...))). The continued fraction can also be written as [a0; a1, a2, a3]. The continued fraction form of a fraction can be found by taking its location in the Stern-Brocot tree and placing the number of each repeating digit in the places for a1, a2, and so on, with the last digit incremented by one. For example, the fraction 4/7 is located at 0100. This means that the continued fraction is [0; 1, 1, 3]. Notice that even though there are two 0s at the end of the location string, the final digit in the continued fraction is 2+1=3. The a0 term is equal to 0 if the rational number is less than 1. Use your code to find the continued fraction form of a given rational number.
+ 
+ 
+Sample Run
+ 
+What Fraction? 2/3
+Location in Stern-Brocot tree: 01
+Continued Fraction: 1/(1+1/2)
+How many levels? 3
+ 
+​​3/1
+​2/1
+​​3/2
+1/1
+​​2/3
+​1/2
+​​1/3
